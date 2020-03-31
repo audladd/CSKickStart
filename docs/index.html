@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="EECS 280"/>
+  <meta name="keywords" content="EECS280, EECS 280, Programming and Introductory Data Structures, University of Michigan Computer Science"/>
+  <title>EECS 280</title>
+  <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css"/>
+  <link href="https://umich.edu/favicon.ico" rel="shortcut icon"/>
+
+  <!-- FullCalendar -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css"/>
+
+  <style>
+    /* This fixes a bug in Semantic UI on iOS that breaks scrolling back to
+     * the top by tapping the status bar.
+     * https://github.com/Semantic-Org/Semantic-UI/issues/1985#issuecomment-110051913
+     */
+     html, body {
+      height: initial;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Nav bar on left side -->
+  <div class="ui left vertical sidebar labeled icon menu">
+<!--
+    <a class="item" href="https://leccap.engin.umich.edu/leccap/site/8ykui9uddz8tksai4km" target="_blank">
+      <img class="icon" src="img/teaching.jpg" alt="teaching lobster"/>
+      W19 Recordings
+    </a>
+    <a class="item" href="https://leccap.engin.umich.edu/leccap/site/69hypf44r47zo14oquj" target="_blank">
+      <img class="icon" src="img/teaching.jpg" alt="teaching lobster"/>
+      S19 Recordings
+    </a>
+    <a class="item" href="https://leccap.engin.umich.edu/leccap/site/o0pg90j91w01pjlgj4w" target="_blank">
+      <img class="icon" src="img/teaching.jpg" alt="teaching lobster"/>
+      F19 Recordings
+    </a>
+-->
+    <a class="item" href="https://leccap.engin.umich.edu/leccap/site/sh8wawxws5kg34tlsa2" target="_blank">
+      <img class="icon" src="img/teaching.jpg" alt="teaching lobster"/>
+      Lecture Recordings
+    </a>
+    <a class="item" href="https://eecs280staff.github.io/notes/" target="_blank">
+      <i class="book icon"></i>
+      Lecture Notes
+    </a>
+    <a class="item" href="https://drive.google.com/drive/folders/13egX-_AvZ_oCYh2Xc3T34P2_7jSVtRLU?usp=sharing" target="_blank">
+      <img class="icon" src="img/blue.jpg" alt="blue lobster"/>
+      Files
+    </a>
+    <a class="item" href="https://piazza.com/class/k4iv85stjw02kh" target="_blank">
+      <img class="icon" src="img/crabster.jpg" alt="crabster"/>
+      Piazza
+    </a>
+    <a class="item" href="http://eecsoh.org" target="_blank">
+      <img class="icon" src="img/fairlyodd.jpg" alt="odd lobster"/>
+      Office Hours
+    </a>
+    <a class="item" href="https://autograder.io/web/course/56" target="_blank">
+      <img class="icon" src="img/autograder.jpg" alt="autograder"/>
+      Autograder
+    </a>
+    <a class="item" href="https://www.gradescope.com/courses/77579" target="_blank">
+      <i class="check icon"></i>
+      Gradescope
+    </a>
+    <a class="item" href="https://lobster.eecs.umich.edu" target="_blank">
+      <i class="bug icon"></i>
+      Lobster
+    </a>
+    <a class="item" href="https://eecs280staff.github.io/lab/" target="_blank">
+      <i class="flask icon"></i>
+      Labs
+    </a>
+    <a class="item" href="https://www.youtube.com/channel/UCjPQVrUlLLfh9DAh_9UduIQ/playlists" target="_blank">
+      <i class="youtube icon"></i>
+      YouTube
+    </a>
+    <a class="item" href="https://forms.gle/Dpo5ypzB8JkcgPaU7" target="_blank">
+      <img class="icon" src="img/coaching.jpg"/>
+      Coaching
+    </a>
+  </div><!-- Nav bar -->
+
+  <!-- Main page  -->
+  <div class="pusher">
+    <div class="ui text container">
+      <button class="ui right floated icon button" id="left-sidebar-toggle">
+        <i class="bars icon"></i>
+      </button>
+
+      <h1>EECS 280: Programming and Intro Data Structures</h1>
+
+      <p><i>Winter 2020</i></p>
+
+      <p>
+        Computer science fundamentals, with programming in C++.  Build an image processing program,
+        a game of Euchre, a web backend, and a machine learning algorithm.
+      </p>
+
+<!--      <div class="ui info message">
+        <b>Welcome to EECS 280, Winter 2020!</b><br />We're excited you're here and looking forward to a great term!
+        <ul>
+          <li>If you are on the waitlist, don't worry. We plan to open additional seats/sections.</li>
+          <li>If you have questions about the diagnostic project, please contact CSE advising.<br />The EECS 280 instructors are not involved with this process.</li>
+          <li>You may enroll in any lab/lecture. You are welcome to attend whichever you like.</li>
+        </ul>
+      </div>
+-->
+      <!-- Info section -->
+      <div class="ui section divider"></div>
+      <div class="ui text container" id="course_info">
+        <h2 class="first">Course Essentials</h2>
+        <div class="ui three stackable cards">
+
+          <a class="ui raised card" target="_blank" href="assets/Syllabus.pdf">
+            <div class="content">
+              <div class="header">
+                Syllabus
+              </div>
+              <div class="description">
+                <p>All the details</p>
+              </div>
+            </div>
+          </a>
+
+          <a class="ui raised card" target="_blank" href="assets/Staff_Profiles.pdf">
+            <div class="content">
+              <div class="header">
+                People
+              </div>
+              <div class="description">
+                <p>Meet the course staff</p>
+              </div>
+            </div>
+          </a>
+
+          <a class="ui raised card" target="_blank" href="https://umich.instructure.com/courses/332270">
+            <div class="content">
+              <div class="header">
+                Canvas
+              </div>
+              <div class="description">
+                <p>Assignments and Grades</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div><!-- Info section -->
+
+      <!-- Projects section -->
+      <div class="ui section divider"></div>
+      <div class="ui text container" id="projects">
+        <h2 class="first">Projects</h2>
+        <div class="ui three stackable cards">
+
+          <a class="ui raised card" target="_blank" href="https://eecs280staff.github.io/p1-stats/setup.html">
+            <div class="content">
+              <div class="header">
+                Setup Tutorial
+              </div>
+              <div class="description">
+                <p>Tools and how-tos</p>
+              </div>
+            </div>
+          </a>
+
+          <a class="ui raised card" target="_blank" href="https://eecs280staff.github.io/p1-stats/">
+            <div class="content">
+              <div class="header">
+                Project 1
+              </div>
+              <div class="description">
+                <p>Statistics</p>
+              </div>
+            </div>
+          </a>
+
+          <a class="ui raised card" target="_blank" href="https://eecs280staff.github.io/p2-cv/">
+            <div class="content">
+              <div class="header">
+                Project 2
+              </div>
+              <div class="description">
+                <p>Computer Vision</p>
+              </div>
+            </div>
+          </a>
+
+          <a class="ui raised card" target="_blank" href=" https://eecs280staff.github.io/p3-euchre/">
+            <div class="content">
+              <div class="header">
+                Project 3
+              </div>
+              <div class="description">
+                <p>Euchre</p>
+              </div>
+            </div>
+          </a>
+
+          <a class="ui raised card" target="_blank" href=" https://eecs280staff.github.io/p4-web/">
+            <div class="content">
+              <div class="header">
+                Project 4
+              </div>
+              <div class="description">
+                <p>Web</p>
+              </div>
+            </div>
+          </a>
+
+<!--
+          <a class="ui raised card" target="_blank" href=" https://eecs280staff.github.io/p5-ml/">
+            <div class="content">
+              <div class="header">
+                Project 5
+              </div>
+              <div class="description">
+                <p>Machine Learning</p>
+              </div>
+            </div>
+          </a> -->
+
+        </div>
+      </div><!-- Projects section -->
+
+      
+
+
+      <!-- Lectures section -->
+      <div class="ui section divider"></div>
+      <div id="people"><h2>Lectures</h2></div>
+      <div class="ui hidden divider"></div>
+      <div class="ui three stackable cards">
+
+        <div class="ui fluid card">
+          <div class="image">
+          	<!-- <img src="img/headshot.jpg"/> -->
+          </div>
+          <div class="content">
+            <div class="header">
+              Jonathan Beaumont
+            </div>
+            <p><i class="icon envelope"></i>jbbeau@umich.edu</p>
+            <p><i class="icon calendar"></i>12-1:30 1013 DOW</p>
+            <p><i class="icon calendar"></i>4-5:30 AUD 3 MLB</p>
+         <!--
+            <p><i class="icon laptop"></i>platform</p>
+            <p><i class="icon info"></i>interests</p>
+         -->
+          </div>
+        </div>
+               
+        <div class="ui fluid card">
+          <div class="image">
+          	<!-- <img src="img/headshot.jpg"/> -->
+          </div>
+          <div class="content">
+            <div class="header">
+              Nicole Hamilton
+            </div>
+            <p><i class="icon envelope"></i>nham@umich.edu</p>
+            <p><i class="icon calendar"></i>10:30-12 1013 DOW</p>
+            <p><i class="icon calendar"></i>3-4:30 1013 DOW</p>
+         <!--
+            <p><i class="icon laptop"></i>Windows, Visual Studio, WSL</p>
+            <p><i class="icon info"></i>Politics, bicycling, learning anything new</p>
+         -->
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+          	<!-- <img src="img/headshot.jpg"/> -->
+          </div>
+          <div class="content">
+            <div class="header">
+              James Juett
+            </div>
+            <p><i class="icon envelope"></i>jjuett@umich.edu</p>
+            <p><i class="icon calendar"></i>9-10:30 STAMPS</p>
+         <!--
+            <p><i class="icon laptop"></i>platform</p>
+            <p><i class="icon info"></i>interests</p>
+         -->
+          </div>
+        </div>
+
+        
+      </div><!-- ui stackable cards -->
+
+      <!-- Schedule section -->
+      <div class="ui section divider"></div>
+      <div id="info"><h2>Calendar</h2></div>
+      <br/>
+
+      <div id="calendar"></div>
+      <script>
+       // Change calendar ID used by FullCalendar JavaScript code, below
+       calendarId = 'umich.edu_upeop3upt55bnb0sm6q314l1ms@group.calendar.google.com';
+      </script>
+      <p>
+        <i class="sticky note icon"></i>
+        <a href="https://calendar.google.com/calendar/embed?src=umich.edu_upeop3upt55bnb0sm6q314l1ms%40group.calendar.google.com&ctz=America%2FNew_York" target="_blank">Open calendar in new window</a>
+      </p>
+
+      <div class="ui section divider"></div>
+      <div id="info"><h2>Schedule of Topics</h2></div>
+      
+      <table class="ui celled table">
+        <thead>
+          <tr>
+            <th class="s0 three wide">Day</th>
+            <th class="s0">#</th>
+            <th class="s0">Lecture Topic</th>
+            <th class="s1">Lab Topic</th>
+            <th class="s1 three wide">Deadline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td class="s2" dir="ltr">Wed 8 Jan</td>
+            <td class="s2">1</td>
+            <td class="s3">Introduction and Machine Model</td>
+            <td class="s4">No lab</td>
+            <td class="s5"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 13 Jan</td>
+            <td class="s6">2</td>
+            <td class="s7 softmerge">
+              <div class="softmerge-inner" style="width: 275px; left: -1px;">Procedural Abstraction, Testing and Debugging
+              </div>
+            </td>
+            <td class="s5" rowspan="2">Getting Started</td>
+            <td class="s5" rowspan="2"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 15 Jan</td>
+            <td class="s2">3</td>
+            <td class="s3">Pointers</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 20 Jan</td>
+            <td></td>
+            <td class="s4">No class - MLK Day</td>
+            <td class="s8" rowspan="2">No lab</td>
+            <td class="s5 warning" dir="ltr" rowspan="2"><b>Project 1 due Tue 21 Jan 8pm</b></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 22 Jan</td>
+            <td class="s6">4</td>
+            <td class="s7">Pointers and Arrays</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 27 Jan</td>
+            <td class="s6">5</td>
+            <td class="s7">Strings, Streams, and IO</td>
+            <td class="s5" rowspan="2">Pointers and Arrays</td>
+            <td class="s3" rowspan="2"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 29 Jan</td>
+            <td class="s6">6</td>
+            <td class="s7">Compound Objects</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 3 Feb</td>
+            <td class="s6">7</td>
+            <td class="s7">Abstract Data Types in C</td>
+            <td class="s5" dir="ltr" rowspan="2">Strings and I/O</td>
+            <td class="s5 warning" dir="ltr" rowspan="2"><b>Project 2 due Fri 7 Feb 8pm</b></td>
+          </tr>
+          <tr style='height:19px;'>
+            
+            <td class="s2">Wed 5 Feb</td>
+            <td class="s2">8</td>
+            <td class="s3">Abstract Data Types in C++</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 10 Feb</td>
+            <td class="s2">9</td>
+            <td class="s3">Derived Classes and Inheritance</td>
+            <td class="s5" rowspan="2">Abstract Data Types</td>
+            <td class="s9" rowspan="2"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 12 Feb</td>
+            <td class="s2">10</td>
+            <td class="s3">Polymorphism</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 17 Feb</td>
+            <td class="s2">11</td>
+            <td class="s3">Container ADTs I</td>
+            <td class="s5" rowspan="2">Polymorphism</td>
+            <td class="s9" rowspan="2"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 19 Feb</td>
+            <td class="s2">12</td>
+            <td class="s3">Container ADTs II</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 24 Feb</td>
+            <td class="s2">13</td>
+            <td class="s3">Memory Models and Dynamic Memory</td>
+            <td class="s5" rowspan="2">Container ADTs</td>
+            <td class="s5 warning" rowspan="2"><b>Project 3 due Fri 28 Feb 8pm</b></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 26 Feb</td>
+            <td class="s2">14</td>
+            <td class="s3">Managing Dynamic Memory</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 2 Mar</td>
+            <td class="s3"></td>
+            <td class="s4">No class - Spring Break</td>
+            <td class="s8" rowspan="2">No lab</td>
+            <td class="s5" rowspan="2"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 4 Mar</td>
+            <td class="s3"></td>
+            <td class="s4">No class - Spring Break</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 9 Mar</td>
+            <td class="s2" dir="ltr">15</td>
+            <td class="s3" dir="ltr">Midterm Review</td>
+            <td class="s8" rowspan="2">No lab</td>
+            <td class="s10 negative" dir="ltr" rowspan="2"><b>Midterm exam Wed 11 Mar 7:00pm</b></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 11 Mar</td>
+            <td></td>
+            <td class="s4">No class - Midterm Exam</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 16 Mar</td>
+            <td class="s2">16</td>
+            <td class="s3">Deep Copies and The Big Three</td>
+            <td class="s5" rowspan="2">Dynamic Memory</td>
+            <td class="s5" rowspan="2"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 18 Mar</td>
+            <td class="s2">17</td>
+            <td class="s3">Linked Lists</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 23 Mar</td>
+            <td class="s6">18</td>
+            <td class="s3">Iterators</td>
+            <td class="s5" dir="ltr" rowspan="2">Deep Copies &amp; The Big Three</td>
+            <td class="s3" rowspan="2"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 25 Mar</td>
+            <td class="s6">19</td>
+            <td class="s7">Function Objects and Impostor Syndrome</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 30 Mar</td>
+            <td class="s6">20</td>
+            <td class="s7" dir="ltr">Recursion</td>
+            <td class="s5" dir="ltr" rowspan="2">Recursion</td>
+            <td class="s5 warning" dir="ltr" rowspan="2"><b>Project 4 due Wed 1 Apr 8pm</b></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 1 Apr</td>
+            <td class="s2">21</td>
+            <td class="s7">Structural Recursion</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 6 Apr</td>
+            <td class="s2">22</td>
+            <td class="s3">Problem Solving with Recursion</td>
+            <td class="s5" dir="ltr" rowspan="2">Functors</td>
+            <td class="s5" rowspan="2"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 8 Apr</td>
+            <td class="s2">23</td>
+            <td class="s3">Exceptions</td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Mon 13 Apr</td>
+            <td class="s2">24</td>
+            <td class="s3">Containers of Pointers</td>
+            <td class="s5" rowspan="2">Final Exam Review</td>
+            <td class="s5" rowspan="2"></td>
+          </tr>
+          <tr>
+            
+            <td class="s2">Wed 15 Apr</td>
+            <td class="s2" dir="ltr">25</td>
+            <td class="s3">Final Review</td>
+          </tr>
+          <tr>
+            
+            <td class="s11" rowspan="2">Mon 20 Apr</td>
+            <td class="s11" rowspan="2"></td>
+            <td class="s5" dir="ltr" rowspan="2">TBA</td>
+            <td class="s8" rowspan="2">No lab</td>
+            <td class="s5 warning" dir="ltr" rowspan="2"><b>Project 5 due Tue 21 Apr 8pm</b></td>
+          </tr>
+          <tr>
+            
+          </tr>
+          <tr>
+            
+            <td class="s11" dir="ltr">Mon 27 Apr</td>
+            <td class="s5"></td>
+            <td class="s5">Final Exam</td>
+            <td class="s8"></td>
+            <td class="s12 negative" dir="ltr"><b>Final exam Mon 27 Apr 10:30am</b></td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+
+    </div><!-- ui text container -->
+    <br />
+  </div>
+
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="semantic/semantic.min.js"></script>
+
+  <!-- MomentJS is required for FullCalendar -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+  <!-- FullCalendar (with Google Calendar support) -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/gcal.min.js"></script>
+  
+  <script src="assets/js/calendar.js"></script>
+  <script>
+   (function() {
+     // Assume calendarId global variable was set in calendar section above
+     console.assert(calendarId);
+
+     calendarView = 'agendaWeek';
+     if (isSmallScreen()) {
+       calendarView = 'agendaDay';
+     }
+     calendar.renderCalendar(calendarId, calendarView);
+
+     renderSidebar();
+   })();
+
+
+   function isSmallScreen() {
+     return screen.width < 900;
+   }
+
+
+   function renderSidebar() {
+     $sidebar = $('.ui.sidebar');
+     $sidebar.sidebar({
+       dimPage: false,
+       transition: 'overlay',
+       mobileTransition: 'overlay',
+       exclusive: false,
+       closable: false
+     });
+     $sidebar.sidebar('attach events', '#left-sidebar-toggle');
+
+     if (!isSmallScreen()) {
+       $sidebar.sidebar('toggle');
+     }
+   }
+
+  </script>
+
+</body>
+</html>
